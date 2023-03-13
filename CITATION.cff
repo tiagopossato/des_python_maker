@@ -13,8 +13,7 @@ authors:
     email: dev.tiago.possato@gmail.com
     affiliation: IFC
     orcid: 'https://orcid.org/0000-0002-9285-4331'
-  - given-names: João
-    name-particle: Henrique
+  - given-names: João Henrique
     family-names: Valentini
     email: joaovalentini@alunos.utfpr.edu.br
     affiliation: UTFPR
@@ -31,3 +30,5 @@ keywords:
   - TCS
   - code generation
 license: GPL-3.0+
+date-released: '2023-03-12'
+
