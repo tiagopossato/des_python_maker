@@ -1,0 +1,33 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: DESPythonMaker
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Tiago
+    family-names: Possato
+    email: dev.tiago.possato@gmail.com
+    affiliation: IFC
+    orcid: 'https://orcid.org/0000-0002-9285-4331'
+  - given-names: João
+    name-particle: Henrique
+    family-names: Valentini
+    email: joaovalentini@alunos.utfpr.edu.br
+    affiliation: UTFPR
+  - given-names: Hudson
+    family-names: Lapa
+    email: hudson_lapa@hotmail.com
+    affiliation: UTFPR
+repository-code: 'https://github.com/tiagopossato/des_python_maker'
+abstract: >-
+  A software to parse "Waters/Supremica" files and generate
+  Python code from his inside supervisors.
+keywords:
+  - DES
+  - TCS
+  - code generation
+license: GPL-3.0+
