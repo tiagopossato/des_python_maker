@@ -1,0 +1,8 @@
+- Impedir execução de evento quando não estiver em nenhum supervisor.
+
+
+- Adicionar README.md com as instruções de uso
+- Adicionar README.md na pasta templates
+    - Documentar a estrutura de cada pasta
+    - Documentar o funcionamento do código
+    - Adicionar em 'maker.py' a cópia dos arquivos README para a pasta do código gerado 

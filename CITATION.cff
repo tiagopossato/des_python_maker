@@ -4,8 +4,7 @@
 cff-version: 1.2.0
 title: DESPythonMaker
 message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+  If you use this software, please cite it using the metadata from this file.
 type: software
 authors:
   - given-names: Tiago
@@ -23,8 +22,7 @@ authors:
     affiliation: UTFPR
 repository-code: 'https://github.com/tiagopossato/des_python_maker'
 abstract: >-
-  A software to parse "Waters/Supremica" files and generate
-  Python code from his inside supervisors.
+  A software to parse "Waters/Supremica" files and generate Python code from his inside supervisors.
 keywords:
   - DES
   - TCS
