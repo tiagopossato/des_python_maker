@@ -7,6 +7,11 @@ class CustomTemplate(Template):
 	delimiter = '%$%'
 
 def fill_template(template, dest, template_dict):
+    # verify if scrtip is being executed on windows and convert paths to windows format
+    if os.name == 'nt':
+        template = template.replace('/', '\\')
+        dest = dest.replace('/', '\\')
+    
     # make the names of the files
     with open(template, 'r') as f:
         src = CustomTemplate(f.read())
@@ -18,6 +23,7 @@ def fill_template(template, dest, template_dict):
 
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--input', type=str, help='Input file')
@@ -93,17 +99,6 @@ for supervisor in simple_component_supervisor:
     sup['event_list'] = local_event_list
     supervisors.append(sup)
 
-
-# os.system(f"cp -r {base_dir}/template/__init__.py {output_dir}/__init__.py")
-# os.system(f"cp -r {base_dir}/template/Supervisor/Base {output_dir}/Supervisor/Base ")
-# os.system(f"cp -r {base_dir}/template/Supervisor/__init__.py {output_dir}/Supervisor/__init__.py")
-# os.system(f"cp -r {base_dir}/template/Supervisor/logger.py {output_dir}/Supervisor/logger.py")
-
-# os.mkdir(f"{output_dir}/Supervisor/supervisors")
-
-# os.system(f"cp -r {base_dir}/template/README.md {output_dir}/README.md")
-# os.system(f"cp -r {base_dir}/template/Supervisor/README.md {output_dir}/Supervisor/README.md")
-# os.system(f"cp -r {base_dir}/template/Supervisor/supervisors/README.md {output_dir}/Supervisor/supervisors/README.md")
 
 # make file events_names.py
 # 'Se': Event(EventKind.UNCONTROLLABLE, 0, "Se"),
