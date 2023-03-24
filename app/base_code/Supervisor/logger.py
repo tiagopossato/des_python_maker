@@ -26,7 +26,7 @@ def log_error(event:Event, sup: Supervisor, msg: str):
     Log error
     """
     try:
-        logger.error(f"{event.get_name()}; {sup.get_name()}; {sup.get_current_state().get_name()}; {msg}")
+        logger.error(f"{event.get_name()}[{event.get_kind()}]; {sup.get_name()}; {sup.get_current_state().get_name()}; {msg}")
     except Exception as e:
         # verify if event is in Events dictionary
         if not isinstance(event, Event):

@@ -39,8 +39,7 @@ def handle_event(event: Event):
         # run event
         for sup in execution_list:
             sup.run(event)
-
-        log_state(event, supervisors)
+            log_state(event, [sup])
     # run callback.
     # Must be the last thing to do
     # and must be outside the lock
