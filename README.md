@@ -40,7 +40,7 @@ The script will generate a structure with the same name of the output directory.
 
 # How to use
 
-The file main.py is the entry point of the generated code and the only file you need to change and run.
+The file `main.py` is the entry point of the generated code and the only file you need to change and run.
 
 1. First, create a callback function to be called by the event handler whenever a handled event is enabled. The callback function must have the following signature:
 
