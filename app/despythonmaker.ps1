@@ -77,8 +77,7 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host ""
     Write-Host ""
 
-    # if ($e -eq "y") {
-
+    if ($e -eq "y") {
         Write-Host "-------------------EXECUTING----------------------"
         Write-Host ""
         Write-Host ""
@@ -89,14 +88,25 @@ if ($LASTEXITCODE -eq 0) {
         python main.py
         # change to previous directory
         Set-Location $SCRIPTPWD
-    # }
+    }
+
     Write-Host ""
     Write-Host ""
     Write-Host "-------------------INSTRUCTIONS----------------------"
     Write-Host ""
     Write-Host ""
     Write-Host "You can find the generated code on $o"
-    Write-Host "The file main.py is the entry point of the generated code and the only file you need to run and change."
+    Write-Host "The file main.py is the entry point of the generated code and the only file you need to change and run."
+    Write-Host ""
+    Write-Host ""
+}
+else {
+    Write-Host ""
+    Write-Host ""
+    Write-Host ""
+    Write-Host "-------------------ERROR----------------------"
+    Write-Host ""
+    Write-Host "Generation failed!"
     Write-Host ""
     Write-Host ""
 }
