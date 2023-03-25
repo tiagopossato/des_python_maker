@@ -1,4 +1,4 @@
-# des_python_maker
+# DESPythonMaker
 
 This tool can parse a "Waters/Supremica" file (.wmod) and generate a Python code with the same structure of the inside supervisors and distinguishers.
 
