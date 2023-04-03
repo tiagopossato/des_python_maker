@@ -23,14 +23,14 @@ run ```setup_linux.sh``` with bash to create virtual environment and install dep
 
 ## Windows
 
-run `app\descmaker.ps1 -i <input> -o <output> -e <y/n>` with Powershell to execute the software:
+run `app\despythonmaker.ps1 -i <input> -o <output> -e <y/n>` with Powershell to execute the software:
 -  `-i <input>`: input file (required)
 -  `-o <output>`: output directory. Default: 'generated_code'
 -  `-e` : execute the generated code. Default: y
  
 ## Linux
 
-run `app\descmaker.sh -i <input> -o <output> -e -h` with terminal to execute the software:
+run `app\despythonmaker.sh -i <input> -o <output> -e -h` with terminal to execute the software:
 - `-i <input>` : input file (required)
 - `-o <output>` : output directory. Default: generated_code
 - `-e` : execute the generated code. Default: y
