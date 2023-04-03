@@ -2,7 +2,7 @@ from . import Event, EventKind
 
 # Create events
 Events = {
-    'btnON': Event(EventKind.UNCONTROLLABLE, 0, 'btnON'),
+    'btn': Event(EventKind.UNCONTROLLABLE, 0, 'btn'),
     'liga': Event(EventKind.CONTROLLABLE, 1, 'liga'),
     'desliga': Event(EventKind.CONTROLLABLE, 2, 'desliga'),
 }

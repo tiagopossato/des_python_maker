@@ -1,34 +1,45 @@
 from .. import Events, State, Supervisor
 
 # Create states
-q0_state = State("q0", True)
-q2_state = State("q2", False)
-q3_state = State("q3", False)
-q4_state = State("q4", False)
+G1S0_E1S0_E2S0_G2S0_state = State("G1S0_E1S0_E2S0_G2S0", True)
+G1S0_E1S0_E2S0_G2S1_state = State("G1S0_E1S0_E2S0_G2S1", False)
+G1S0_E1S0_E2S1_G2S1_state = State("G1S0_E1S0_E2S1_G2S1", False)
+G1S0_E1S1_E2S0_G2S0_state = State("G1S0_E1S1_E2S0_G2S0", False)
+G1S0_E1S1_E2S0_G2S1_state = State("G1S0_E1S1_E2S0_G2S1", False)
+G1S0_E1S1_E2S1_G2S0_state = State("G1S0_E1S1_E2S1_G2S0", False)
+G1S0_E1S1_E2S1_G2S1_state = State("G1S0_E1S1_E2S1_G2S1", False)
 
 
 # Create transitions
-q0_state.add_transition(Events['btnON'], q2_state)
-q2_state.add_transition(Events['btnON'], q2_state)
-q2_state.add_transition(Events['liga'], q3_state)
-q3_state.add_transition(Events['btnON'], q4_state)
-q4_state.add_transition(Events['desliga'], q0_state)
-q4_state.add_transition(Events['btnON'], q4_state)
+G1S0_E1S0_E2S0_G2S0_state.add_transition(Events['btn'], G1S0_E1S1_E2S1_G2S0_state)
+G1S0_E1S0_E2S0_G2S1_state.add_transition(Events['desliga'], G1S0_E1S0_E2S0_G2S0_state)
+G1S0_E1S0_E2S0_G2S1_state.add_transition(Events['btn'], G1S0_E1S1_E2S1_G2S1_state)
+G1S0_E1S0_E2S1_G2S1_state.add_transition(Events['btn'], G1S0_E1S1_E2S0_G2S1_state)
+G1S0_E1S1_E2S0_G2S0_state.add_transition(Events['liga'], G1S0_E1S0_E2S0_G2S1_state)
+G1S0_E1S1_E2S0_G2S0_state.add_transition(Events['btn'], G1S0_E1S1_E2S1_G2S0_state)
+G1S0_E1S1_E2S0_G2S1_state.add_transition(Events['desliga'], G1S0_E1S1_E2S0_G2S0_state)
+G1S0_E1S1_E2S0_G2S1_state.add_transition(Events['btn'], G1S0_E1S1_E2S1_G2S1_state)
+G1S0_E1S1_E2S1_G2S0_state.add_transition(Events['liga'], G1S0_E1S0_E2S1_G2S1_state)
+G1S0_E1S1_E2S1_G2S0_state.add_transition(Events['btn'], G1S0_E1S1_E2S0_G2S0_state)
+G1S0_E1S1_E2S1_G2S1_state.add_transition(Events['btn'], G1S0_E1S1_E2S0_G2S1_state)
 
 
 # create state list
 state_list = []
-state_list.append(q0_state)
-state_list.append(q2_state)
-state_list.append(q3_state)
-state_list.append(q4_state)
+state_list.append(G1S0_E1S0_E2S0_G2S0_state)
+state_list.append(G1S0_E1S0_E2S0_G2S1_state)
+state_list.append(G1S0_E1S0_E2S1_G2S1_state)
+state_list.append(G1S0_E1S1_E2S0_G2S0_state)
+state_list.append(G1S0_E1S1_E2S0_G2S1_state)
+state_list.append(G1S0_E1S1_E2S1_G2S0_state)
+state_list.append(G1S0_E1S1_E2S1_G2S1_state)
 
 
 # create event list
 alphabet = []
-alphabet.append(Events['btnON'])
-alphabet.append(Events['liga'])
+alphabet.append(Events['btn'])
 alphabet.append(Events['desliga'])
+alphabet.append(Events['liga'])
 
 
 # create supervisor
