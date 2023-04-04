@@ -227,186 +227,186 @@
 <SimpleComponent Kind="SUPERVISOR" Name="sup">
 <Graph>
 <NodeList>
-<SimpleNode Initial="true" Name="G1S0.E1S0.E2S0.G2S0">
+<SimpleNode Initial="true" Name="G2S0.E1S0.E2S0">
 <EventList>
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="68" Y="57"/>
+<Point X="62" Y="60"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="8" Y="-34"/>
+<Point X="-1" Y="-34"/>
 </LabelGeometry>
 </SimpleNode>
-<SimpleNode Name="G1S0.E1S0.E2S0.G2S1">
-<PointGeometry>
-<Point X="192" Y="77"/>
-</PointGeometry>
-<LabelGeometry Anchor="NW">
-<Point X="12" Y="-18"/>
-</LabelGeometry>
-</SimpleNode>
-<SimpleNode Name="G1S0.E1S0.E2S1.G2S1">
-<PointGeometry>
-<Point X="112" Y="308"/>
-</PointGeometry>
-<LabelGeometry Anchor="NW">
-<Point X="-62" Y="13"/>
-</LabelGeometry>
-</SimpleNode>
-<SimpleNode Name="G1S0.E1S1.E2S0.G2S0">
+<SimpleNode Name="G2S0.E1S1.E2S0">
 <EventList>
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="147" Y="172"/>
+<Point X="164" Y="155"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="-29" Y="-24"/>
+<Point X="14" Y="-6"/>
 </LabelGeometry>
 </SimpleNode>
-<SimpleNode Name="G1S0.E1S1.E2S0.G2S1">
-<PointGeometry>
-<Point X="226" Y="249"/>
-</PointGeometry>
-<LabelGeometry Anchor="NW">
-<Point X="17" Y="9"/>
-</LabelGeometry>
-</SimpleNode>
-<SimpleNode Name="G1S0.E1S1.E2S1.G2S0">
+<SimpleNode Name="G2S0.E1S1.E2S1">
 <EventList>
 <SimpleIdentifier Name=":accepting"/>
 </EventList>
 <PointGeometry>
-<Point X="58" Y="187"/>
+<Point X="192" Y="69"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="-161" Y="-9"/>
+<Point X="13" Y="-17"/>
 </LabelGeometry>
 </SimpleNode>
-<SimpleNode Name="G1S0.E1S1.E2S1.G2S1">
+<SimpleNode Name="G2S1.E1S0.E2S0">
 <PointGeometry>
-<Point X="291" Y="163"/>
+<Point X="63" Y="184"/>
 </PointGeometry>
 <LabelGeometry Anchor="NW">
-<Point X="13" Y="-10"/>
+<Point X="-119" Y="-4"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="G2S1.E1S0.E2S1">
+<PointGeometry>
+<Point X="304" Y="141"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="16" Y="-8"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="G2S1.E1S1.E2S0">
+<PointGeometry>
+<Point X="228" Y="245"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="18" Y="-3"/>
+</LabelGeometry>
+</SimpleNode>
+<SimpleNode Name="G2S1.E1S1.E2S1">
+<PointGeometry>
+<Point X="133" Y="296"/>
+</PointGeometry>
+<LabelGeometry Anchor="NW">
+<Point X="-113" Y="-1"/>
 </LabelGeometry>
 </SimpleNode>
 </NodeList>
 <EdgeList>
-<Edge Source="G1S0.E1S0.E2S0.G2S0" Target="G1S0.E1S1.E2S1.G2S0">
+<Edge Source="G2S0.E1S0.E2S0" Target="G2S0.E1S1.E2S1">
 <LabelBlock>
 <SimpleIdentifier Name="btn"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-9" Y="5"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="50" Y="118"/>
+<Point X="125" Y="51"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="G1S0.E1S0.E2S0.G2S1" Target="G1S0.E1S0.E2S0.G2S0">
-<LabelBlock>
-<SimpleIdentifier Name="desliga"/>
-<LabelGeometry Anchor="NW">
-<Point X="-27" Y="9"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="129" Y="53"/>
-</SplineGeometry>
-</Edge>
-<Edge Source="G1S0.E1S0.E2S0.G2S1" Target="G1S0.E1S1.E2S1.G2S1">
+<Edge Source="G2S0.E1S1.E2S0" Target="G2S0.E1S1.E2S1">
 <LabelBlock>
 <SimpleIdentifier Name="btn"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="-16"/>
+<Point X="1" Y="8"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="252" Y="111"/>
+<Point X="190" Y="110"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="G1S0.E1S0.E2S1.G2S1" Target="G1S0.E1S1.E2S0.G2S1">
-<LabelBlock>
-<SimpleIdentifier Name="btn"/>
-<LabelGeometry Anchor="NW">
-<Point X="-22" Y="-28"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="171" Y="291"/>
-</SplineGeometry>
-</Edge>
-<Edge Source="G1S0.E1S1.E2S0.G2S0" Target="G1S0.E1S0.E2S0.G2S1">
+<Edge Source="G2S0.E1S1.E2S0" Target="G2S1.E1S0.E2S0">
 <LabelBlock>
 <SimpleIdentifier Name="liga"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="2" Y="8"/>
 </LabelGeometry>
 </LabelBlock>
 </Edge>
-<Edge Source="G1S0.E1S1.E2S0.G2S0" Target="G1S0.E1S1.E2S1.G2S0">
+<Edge Source="G2S0.E1S1.E2S1" Target="G2S0.E1S1.E2S0">
 <LabelBlock>
 <SimpleIdentifier Name="btn"/>
 <LabelGeometry Anchor="NW">
-<Point X="0" Y="10"/>
+<Point X="-30" Y="-15"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="99" Y="191"/>
+<Point X="169" Y="103"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="G1S0.E1S1.E2S0.G2S1" Target="G1S0.E1S1.E2S0.G2S0">
-<LabelBlock>
-<SimpleIdentifier Name="desliga"/>
-<LabelGeometry Anchor="NW">
-<Point X="-51" Y="9"/>
-</LabelGeometry>
-</LabelBlock>
-</Edge>
-<Edge Source="G1S0.E1S1.E2S0.G2S1" Target="G1S0.E1S1.E2S1.G2S1">
-<LabelBlock>
-<SimpleIdentifier Name="btn"/>
-<LabelGeometry Anchor="NW">
-<Point X="11" Y="1"/>
-</LabelGeometry>
-</LabelBlock>
-<SplineGeometry>
-<Point X="279" Y="219"/>
-</SplineGeometry>
-</Edge>
-<Edge Source="G1S0.E1S1.E2S1.G2S0" Target="G1S0.E1S0.E2S1.G2S1">
+<Edge Source="G2S0.E1S1.E2S1" Target="G2S1.E1S0.E2S1">
 <LabelBlock>
 <SimpleIdentifier Name="liga"/>
 <LabelGeometry Anchor="NW">
-<Point X="13" Y="-16"/>
+<Point X="-28" Y="1"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="73" Y="259"/>
+<Point X="258" Y="96"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="G1S0.E1S1.E2S1.G2S0" Target="G1S0.E1S1.E2S0.G2S0">
+<Edge Source="G2S1.E1S0.E2S0" Target="G2S0.E1S0.E2S0">
+<LabelBlock>
+<SimpleIdentifier Name="desliga"/>
+<LabelGeometry Anchor="NW">
+<Point X="5" Y="-11"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="49" Y="119"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="G2S1.E1S0.E2S0" Target="G2S1.E1S1.E2S1">
 <LabelBlock>
 <SimpleIdentifier Name="btn"/>
 <LabelGeometry Anchor="NW">
-<Point X="-15" Y="-27"/>
+<Point X="-32" Y="-5"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="95" Y="169"/>
+<Point X="87" Y="249"/>
 </SplineGeometry>
 </Edge>
-<Edge Source="G1S0.E1S1.E2S1.G2S1" Target="G1S0.E1S1.E2S0.G2S1">
+<Edge Source="G2S1.E1S0.E2S1" Target="G2S1.E1S1.E2S0">
 <LabelBlock>
 <SimpleIdentifier Name="btn"/>
 <LabelGeometry Anchor="NW">
-<Point X="-35" Y="-25"/>
+<Point X="0" Y="10"/>
 </LabelGeometry>
 </LabelBlock>
 <SplineGeometry>
-<Point X="259" Y="198"/>
+<Point X="278" Y="198"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="G2S1.E1S1.E2S0" Target="G2S0.E1S1.E2S0">
+<LabelBlock>
+<SimpleIdentifier Name="desliga"/>
+<LabelGeometry Anchor="NW">
+<Point X="9" Y="-10"/>
+</LabelGeometry>
+</LabelBlock>
+</Edge>
+<Edge Source="G2S1.E1S1.E2S0" Target="G2S1.E1S1.E2S1">
+<LabelBlock>
+<SimpleIdentifier Name="btn"/>
+<LabelGeometry Anchor="NW">
+<Point X="1" Y="0"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="189" Y="292"/>
+</SplineGeometry>
+</Edge>
+<Edge Source="G2S1.E1S1.E2S1" Target="G2S1.E1S1.E2S0">
+<LabelBlock>
+<SimpleIdentifier Name="btn"/>
+<LabelGeometry Anchor="NW">
+<Point X="-20" Y="-18"/>
+</LabelGeometry>
+</LabelBlock>
+<SplineGeometry>
+<Point X="179" Y="274"/>
 </SplineGeometry>
 </Edge>
 </EdgeList>
