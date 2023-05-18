@@ -104,9 +104,9 @@ for supervisor in simple_component_supervisor:
 # 'Se': Event(EventKind.UNCONTROLLABLE, 0, "Se"),
 events = ""
 
-# create set callback list
-# Events['Se'].set_callback(default_callback)
-set_callback = ""
+# create set action list
+# Events['Se'].set_action(default_action)
+set_action = ""
 
 # create handle events list for test
 # handle_event(Events['Se'])
@@ -116,7 +116,7 @@ i = 0
 for event in event_list:
     event['Name'] = event['Name'].replace('.', '_')
     events += f"    '{event['Name']}': Event(EventKind.{event['Kind']}, {i}, '{event['Name']}'),\n"
-    set_callback += f"Events['{event['Name']}'].set_callback(default_callback)\n"
+    set_action += f"Events['{event['Name']}'].set_action(default_action)\n"
     handle_event += f"    handle_event(Events['{event['Name']}'])\n"
     i = i + 1
 
@@ -126,7 +126,7 @@ fill_template(f"{base_dir}/template/Supervisor/events-template.py",
 
 fill_template(f"{base_dir}/template/main-template.py",
                 f"{output_dir}/main.py", 
-                {'set_callback': set_callback,
+                {'set_action': set_action,
                 'handle_event': handle_event})
 
 # create import list

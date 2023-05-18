@@ -3,20 +3,20 @@ from time import sleep
 # install getkey with: pip install getkey
 from getkey import getkey
 
-def btn_callback(event: Event):
+def btn_action(event: Event):
     handle_event(Events['liga'])
     handle_event(Events['desliga'])
 
-def liga_callback(event: Event):
+def liga_action(event: Event):
     print('Ligando...')
 
-def desliga_callback(event: Event):
+def desliga_action(event: Event):
     print('Desligando...')
 
-# set default callback for example
-Events['btn'].set_callback(btn_callback)
-Events['liga'].set_callback(liga_callback)
-Events['desliga'].set_callback(desliga_callback)
+# set default action for example
+Events['btn'].set_action(btn_action)
+Events['liga'].set_action(liga_action)
+Events['desliga'].set_action(desliga_action)
 
 if __name__ == '__main__':
     # handle events for teste

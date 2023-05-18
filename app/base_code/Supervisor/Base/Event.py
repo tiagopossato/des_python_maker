@@ -14,7 +14,7 @@ class Event:
         self.__kind = kind
         self.__event_id = event_id
         self.__name = name
-        self.__callback = None
+        self.__action = None
     
     def get_kind(self) -> EventKind:
         return self.__kind
@@ -28,9 +28,9 @@ class Event:
     def get_id(self) -> int:
         return self.__event_id
 
-    def set_callback(self, callback):
-        self.__callback = callback
+    def set_action(self, action):
+        self.__action = action
     
-    def run_callback(self):
-        if self.__callback is not None:
-            self.__callback(self)
+    def run_action(self):
+        if self.__action is not None:
+            self.__action(self)

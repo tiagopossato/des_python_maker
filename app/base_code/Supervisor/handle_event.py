@@ -1,5 +1,5 @@
 """
-Verifies that the event is enabled, runs the event and its callback
+Verifies that the event is enabled, runs the event and its action
 """
 from . import Event
 from . import supervisors_list
@@ -41,13 +41,13 @@ def handle_event(event: Event):
             sup.run(event)
             log_state(event, [sup])
     # print_enabled_controllable_events()
-    # run callback.
+    # run action.
     # It must be the last thing to do
     # and must be outside the lock
     # for no cause a deadlock
     # because it can change the state
     # and call another handle_event
-    event.run_callback()
+    event.run_action()
     # for event in get_enabled_controllable_events():
     #     print(f"Automatic running event: {event.get_name()}")
     #     handle_event(event)
