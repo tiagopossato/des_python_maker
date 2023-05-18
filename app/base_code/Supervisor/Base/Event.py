@@ -19,6 +19,9 @@ class Event:
     def get_kind(self) -> EventKind:
         return self.__kind
     
+    def is_controllable(self) -> bool:
+        return self.__kind == EventKind.CONTROLLABLE
+    
     def get_name(self) -> str:
         return self.__name
     

@@ -184,8 +184,8 @@ fill_template(f"{base_dir}/template/Supervisor/supervisors/__init__-template.py"
 
 # remove last comma
 supervisor_list = supervisor_list[:-1]
-fill_template(f"{base_dir}/template/Supervisor/handle_event-template.py",
-                f"{output_dir}/Supervisor/handle_event.py", 
+fill_template(f"{base_dir}/template/Supervisor/__init__-template.py",
+                f"{output_dir}/Supervisor/__init__.py", 
                 {'supervisor_list': supervisor_list})
 
 

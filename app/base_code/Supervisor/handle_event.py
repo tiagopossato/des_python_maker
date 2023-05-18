@@ -2,36 +2,36 @@
 Verifies that the event is enabled, runs the event and its callback
 """
 from . import Event
-from .supervisors import sup
+from . import supervisors_list
 from .logger import log_error, log_state
 from threading import Lock
-
-supervisors = [sup]
 
 # create a lock
 lock = Lock()
 def handle_event(event: Event):
     """
     Handle event
-    """
-    # verify if event is in Events dictionary
+    """    
     if not isinstance(event, Event):
         raise TypeError("event must be instance of Event")
+    print(f"\n-----------------------------------------\nRunning event: {event.get_name()}")
     with lock:
         # print(f"Event: {event.get_name()}")
         execution_list = []
-        for sup in supervisors:
-            # if event is in supervisor alphabet
+        for sup in supervisors_list:
+            # verify if event is in Alphabet of supervisor
+            # if not, ignore because the supervisor does not observe the event
             if event in sup.get_alphabet():
                 # verify if event is enabled
                 if event in sup.get_enabled_events():
+                    # if enabled, add to execution list
                     execution_list.append(sup)
                 else:
                     log_error(event, sup, f"Event not enabled")
                     return
 
         # verify len of execution_list
-        # if 0, event is not in any supervisor alphabet
+        # if len is 0, no supervisor is observing the event
         if len(execution_list) == 0:
             print(f"Event {event.get_name()} not enabled")
             return
@@ -40,9 +40,45 @@ def handle_event(event: Event):
         for sup in execution_list:
             sup.run(event)
             log_state(event, [sup])
+    # print_enabled_controllable_events()
     # run callback.
-    # Must be the last thing to do
+    # It must be the last thing to do
     # and must be outside the lock
+    # for no cause a deadlock
     # because it can change the state
     # and call another handle_event
     event.run_callback()
+    # for event in get_enabled_controllable_events():
+    #     print(f"Automatic running event: {event.get_name()}")
+    #     handle_event(event)
+
+def get_enabled_controllable_events():
+    """
+    Get all enabled controllable events
+    An event is enabled when it is present in the supervisor alphabet
+    and enabled in the current state.
+    """
+    enabled_controllable_events = []
+    # get enabled events on first supervisor
+    enabled_controllable_events = supervisors_list[0].get_enabled_controllable_events()
+    # get intersection of controllable events on other supervisors
+    for sup in supervisors_list[1:]:
+        # get alphabet of the supervisor
+        sup_alphabet = sup.get_alphabet()
+        # get enabled controllable events of the supervisor
+        sup_enabled_controllable_events = sup.get_enabled_controllable_events()
+        # get intersection
+        for event in enabled_controllable_events:
+            if event in sup_alphabet and event not in sup_enabled_controllable_events:
+                enabled_controllable_events.remove(event)
+    return enabled_controllable_events
+
+def print_enabled_controllable_events():
+    """
+    Print enabled controllable events
+    """
+    evts = get_enabled_controllable_events()
+    print("Enabled controllable events: [", end="")
+    for event in evts:
+        print(event.get_name(), end=", ")
+    print("]")
