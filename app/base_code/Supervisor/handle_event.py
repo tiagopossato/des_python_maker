@@ -48,9 +48,9 @@ def handle_event(event: Event):
     # because it can change the state
     # and call another handle_event
     event.run_action()
-    # for event in get_enabled_controllable_events():
-    #     print(f"Automatic running event: {event.get_name()}")
-    #     handle_event(event)
+    for event in get_enabled_controllable_events():
+        print(f"Automatic running event: {event.get_name()}")
+        handle_event(event)
 
 def get_enabled_controllable_events():
     """
@@ -68,7 +68,7 @@ def get_enabled_controllable_events():
         # get enabled controllable events of the supervisor
         sup_enabled_controllable_events = sup.get_enabled_controllable_events()
         # get intersection
-        for event in enabled_controllable_events:
+        for event in enabled_controllable_events[:]:
             if event in sup_alphabet and event not in sup_enabled_controllable_events:
                 enabled_controllable_events.remove(event)
     return enabled_controllable_events

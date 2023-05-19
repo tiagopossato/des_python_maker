@@ -1,9 +1,8 @@
 # Generated code
 
-
 The file `main.py` is the entry point of the generated code and the only file you need to change and run.
 
-1. First, create a action function to be called by the event handler whenever a handled event is enabled. The action function must have the following signature:
+1. First, create an action function to be called by the event handler whenever a handled event is enabled. The action function must have the following signature:
 
     ```python
     def action(event: Event):
