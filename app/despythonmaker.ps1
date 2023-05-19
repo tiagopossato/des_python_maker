@@ -1,3 +1,5 @@
+# script para rodar criar as pastas de saída, movimentar os arquivos base e rodar o maker.py
+
 # define paramteres
 param(
     [Parameter(Mandatory=$true, HelpMessage="Input file")]

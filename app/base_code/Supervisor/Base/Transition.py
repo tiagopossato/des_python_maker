@@ -1,3 +1,6 @@
+"""
+Classe para manipular as transições
+"""
 from . import Event
 from . import State
 

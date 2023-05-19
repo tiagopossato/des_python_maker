@@ -1,3 +1,9 @@
+"""
+Arquivo principal do programa, responsável por ler o arquivo xml e gerar os arquivos python
+Procura pelas tags SimpleComponent, com o atributo Kind="SUPERVISOR"
+Já para os distuinguidores, procura pelas tags SimpleComponent, com o atributo Kind="PLANT" e Name="GD*"
+Cada supervisor ou distuinguidor é um arquivo python separado, com o nome do supervisor ou distuinguidor
+"""
 from bs4 import BeautifulSoup 
 import os
 import argparse

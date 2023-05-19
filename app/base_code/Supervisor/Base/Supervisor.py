@@ -1,3 +1,6 @@
+"""
+Classe para manipular o supervisor
+"""
 from . import State
 from . import Event
 from typing import List

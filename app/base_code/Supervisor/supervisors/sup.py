@@ -1,3 +1,7 @@
+"""
+Exemplo de supervisor gerado.
+É substituído pelo maker.py na hora de converter o supervisor.
+"""
 from .. import Events, State, Supervisor
 
 # Create states

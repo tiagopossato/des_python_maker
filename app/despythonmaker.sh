@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# script para rodar criar as pastas de saída, movimentar os arquivos base e rodar o maker.py
+
 BASEDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 source "$BASEDIR"/../env/bin/activate

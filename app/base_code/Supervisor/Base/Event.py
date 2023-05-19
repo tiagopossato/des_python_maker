@@ -1,3 +1,6 @@
+"""
+Classe para manipular os eventos
+"""
 from enum import Enum
 
 class EventKind(Enum):

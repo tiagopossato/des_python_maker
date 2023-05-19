@@ -1,3 +1,6 @@
+"""
+Classe para manipular os estados
+"""
 from typing import List
 
 from .Event import Event

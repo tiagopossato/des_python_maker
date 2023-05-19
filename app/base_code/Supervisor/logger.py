@@ -1,3 +1,7 @@
+"""
+Arquivo com funções para mostar eventos e estados do supervisor
+Salva os logs em um arquivo csv
+"""
 from typing import List
 
 # import depencies for log

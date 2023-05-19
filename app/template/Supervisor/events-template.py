@@ -1,3 +1,6 @@
+"""
+Events from supremica file
+"""
 from . import Event, EventKind
 
 # Create events

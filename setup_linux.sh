@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Faz a instalação do ambiente virtual e das dependências do projeto no Linux
+
 # array with list of dependencies
 declare -a dependencies=(
     "python3"

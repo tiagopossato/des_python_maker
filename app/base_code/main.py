@@ -1,3 +1,7 @@
+"""
+Arquivo principal do projeto. 
+É substituído pelo maker.py na hora de converter o supervisor.
+"""
 from Supervisor import Events, Event, handle_event
 from time import sleep
 # install getkey with: pip install getkey
