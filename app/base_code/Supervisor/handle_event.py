@@ -56,7 +56,7 @@ def get_enabled_controllable_events():
     """
     Get all enabled controllable events
     An event is enabled when it is present in the supervisor alphabet
-    and enabled in the current state.
+    AND enabled in the current state.
     """
     enabled_controllable_events = []
     # get enabled events on first supervisor
@@ -68,17 +68,20 @@ def get_enabled_controllable_events():
         # get enabled controllable events of the supervisor
         sup_enabled_controllable_events = sup.get_enabled_controllable_events()
         # get intersection
+        # iterate over a copy of the list
+        # Iterating over this copy allows safely remove elements 
+        # from the original list without affecting the iteration.
         for event in enabled_controllable_events[:]:
-            if event in sup_alphabet and event not in sup_enabled_controllable_events:
-                enabled_controllable_events.remove(event)
-    return enabled_controllable_events
+            if event in sup_alphabet:
+                if event not in sup_enabled_controllable_events:
+                    enabled_controllable_events.remove(event)
+    
+    if(len(enabled_controllable_events) > 0):
+        print("Controllable events enabled: [", end="")
+        for event in enabled_controllable_events:
+            print(event.get_name(), end=", ")
+        # remove last ", "
+        print("\b\b", end="")
+        print("]")
 
-def print_enabled_controllable_events():
-    """
-    Print enabled controllable events
-    """
-    evts = get_enabled_controllable_events()
-    print("Enabled controllable events: [", end="")
-    for event in evts:
-        print(event.get_name(), end=", ")
-    print("]")
+    return enabled_controllable_events

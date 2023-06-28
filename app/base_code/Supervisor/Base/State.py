@@ -55,8 +55,15 @@ class State:
     def get_transitions(self)-> List[Transition]:
         return self.__transitions
     
+    def get_enabled_events(self) -> List[Event]:
+        return [tr.get_event() for tr in self.__transitions]
+    
+    def get_enabled_controllable_events(self) -> List[Event]:
+        return [tr.get_event() for tr in self.__transitions if tr.get_event().is_controllable()]
+    
     def get_name(self) -> str:
         return self.__name
     
     def is_start(self) -> bool:
         return self.__is_start
+    

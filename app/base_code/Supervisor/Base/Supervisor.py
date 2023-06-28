@@ -54,10 +54,10 @@ class Supervisor:
         return False
 
     def get_enabled_events(self) -> List[Event]:
-        return [tr.get_event() for tr in self.__current_state.get_transitions()]
+        return self.__current_state.get_enabled_events()
     
     def get_enabled_controllable_events(self) -> List[Event]:
-        return [tr.get_event() for tr in self.__current_state.get_transitions() if tr.get_event().is_controllable()]
+        return self.__current_state.get_enabled_controllable_events()
     
     def get_alphabet(self) -> List[Event]:
         return self.__alphabet

@@ -17,7 +17,7 @@ Install python3.
 
 # Generating code
 
-run `python3 app\descmaker.py -i <input> -o <output> -e` with terminal to execute the software:
+run `python3 app\despythonmaker.py -i <input> -o <output> -e` with terminal to execute the software:
 - `-i <input>` : input file (required)
 - `-o <output>` : output directory. Default: generated_code
 - `-e` : if present, compile with cmake/gcc and execute the generated code. Default: no execution
