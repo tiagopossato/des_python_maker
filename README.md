@@ -26,6 +26,10 @@ In the first execution, the script will create the virtual environment and insta
 
 The script will generate a structure with the same name of the output directory. The folder will contain the generated code, organized in the same structure of the `base_code`. Inside generated code also will be a `README.md` with the instructions to run the code. Now, this can be readed in `app/base_code/README.md`.
 
+# Usage example
+
+The repository [DESPythonMaker Usage Example](https://github.com/tiagopossato/des_python_maker_example)  contains a use case example.
+
 # How to use the generated code
 
 The file `main.py` is the entry point of the generated code and the only file you need to change and run.
