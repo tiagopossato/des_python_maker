@@ -106,7 +106,7 @@ if __name__ == '__main__':
         # create virtual env
         print("Creating virtual env...")
         
-        result = subprocess.Popen(['python', '-m', 'venv', 'env'])
+        result = subprocess.Popen(['python3', '-m', 'venv', 'env'])
         result.wait()
         if(result.returncode != 0):
             print("Error creating virtual env!")
