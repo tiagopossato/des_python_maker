@@ -1,54 +1,6 @@
 import argparse
 import os
 import subprocess
-import shutil
-import re
-
-def copy_directory(source, destination, exclude_files=None, exclude_dirs=None):
-    if os.path.exists(destination):
-        overwrite = input("Output directory exists. Do you want to overwrite it? [y/n]: ")
-        if overwrite == 'y':
-            # remove directory
-            shutil.rmtree(output_dir)
-        else:
-            exit(0)
-    # Create the destination directory
-    os.makedirs(destination)
-
-    for item in os.listdir(source):
-        source_path = os.path.join(source, item)
-        destination_path = os.path.join(destination, item)
-
-        if os.path.isfile(source_path):
-            # Skip the excluded files based on regex pattern
-            # print(f"Copying file: {source_path}, item: {item}")
-            if exclude_files and any(re.match(pattern, item) for pattern in exclude_files):
-                # print(f"Skipping file: {source_path}")
-                continue
-
-            # Copy files
-            shutil.copy2(source_path, destination_path)
-        elif os.path.isdir(source_path):
-            # Skip the excluded directories based on regex pattern
-            # print(f"Copying dir: {source_path}")
-            if exclude_dirs and any(re.match(pattern, item) for pattern in exclude_dirs):
-                # print(f"Skipping dir: {source_path}")
-                continue
-
-            # Recursively copy directories
-            copy_directory(source_path, destination_path, exclude_files, exclude_dirs)
-
-
-# Specify the regex patterns to exclude files and directories
-exclude_files = [
-    r'\b\w*template\w*\b',  # Exclude a specific files with *template*
-    r'\b\w*.pyc',  # Exclude a specific files with end with .pyc
-    r'sup.py'  # Exclude a specific file
-]
-
-exclude_dirs = [
-    r'__pycache__'  # Exclude directories like 'internal1', 'internal2', etc.
-]
 
 if __name__ == '__main__':
     # verify if user set params
@@ -66,7 +18,7 @@ if __name__ == '__main__':
         print(f"Input file '{input_file}' not found.")
         # print parser help
         parser.print_help()
-        exit(0)
+        exit(-1)
 
     # print input and output files
     print(f"Input file: {input_file}")
@@ -81,8 +33,8 @@ if __name__ == '__main__':
 
     # get script path
     script_path = os.path.dirname(os.path.realpath(__file__))
-    # join script path with 'base_code' folder
-    base_code_path = os.path.join(script_path, 'base_code')
+    # # join script path with 'base_code' folder
+    # base_code_path = os.path.join(script_path, 'base_code')
 
     # get parent directory of script path
     parent_dir = os.path.dirname(script_path)
@@ -110,7 +62,7 @@ if __name__ == '__main__':
         result.wait()
         if(result.returncode != 0):
             print("Error creating virtual env!")
-            exit(0)
+            exit(-1)
         else:
             print("Virtual env created successfully!")
 
@@ -120,15 +72,12 @@ if __name__ == '__main__':
         result.wait()
         if(result.returncode != 0):
             print("Error installing requirements!")
-            exit(0)
+            exit(-1)
         else:
             print("Requirements installed successfully!")
         # change execution path to output_dir
         os.chdir(current_dir)
     
-    # Call the function to copy the directory structure
-    copy_directory(base_code_path, output_dir, exclude_files, exclude_dirs)
-    print("Directory copied successfully!")
 
     # Path to the script that must run under the virtualenv
     maker = os.path.join(script_path, 'maker.py')
@@ -139,7 +88,7 @@ if __name__ == '__main__':
     result = subprocess.Popen([python_bin, maker, '--input', input_file, '--output', output_dir])
     result.wait()
 
-    print(f'Result: {result.returncode}')
+    # print(f'Result: {result.returncode}')
     if execute and result.returncode == 0:
         print("Executing generated code...")
         # change execution path to output_dir
