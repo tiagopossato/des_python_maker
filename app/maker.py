@@ -137,15 +137,17 @@ def convert_supervisor(input_file, output_dir):
     set_action = ""
 
     # create handle events list for test
-    # handle_event(Events['Se'])
-    handle_event = ""
+    # trigger_event(Events['Se'])
+    trigger_event = ""
 
     i = 0
     for event in event_list:
         event['Name'] = event['Name'].replace('.', '_')
         events += f"    '{event['Name']}': Event(EventKind.{event['Kind']}, {i}, '{event['Name']}'),\n"
-        set_action += f"Events['{event['Name']}'].set_action(default_action)\n"
-        handle_event += f"    handle_event(Events['{event['Name']}'])\n"
+        if event['Kind'] == 'CONTROLLABLE':
+            set_action += f"Events['{event['Name']}'].set_action(default_action)\n"
+        if event['Kind'] == 'UNCONTROLLABLE':
+            trigger_event += f"    trigger_event(Events['{event['Name']}'])\n"
         i = i + 1
 
     fill_template(f"{base_dir}/template/Supervisor/events-template.py",
@@ -155,12 +157,12 @@ def convert_supervisor(input_file, output_dir):
     fill_template(f"{base_dir}/template/main-template.py",
                     f"{output_dir}/main.py", 
                     {'set_action': set_action,
-                    'handle_event': handle_event})
+                    'trigger_event': trigger_event})
 
     # create import list
     import_list = ""
 
-    # create supervisor list for use in handle_event
+    # create supervisor list for use in trigger_event
     supervisor_list = ""
 
     for sup in supervisors:
