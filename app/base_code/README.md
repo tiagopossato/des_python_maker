@@ -10,10 +10,10 @@ The file `main.py` is the entry point of the generated code and the only file yo
     ```
     Note that the action function receives an event as its parameter, which is an object belonging to the Event class. This particular event is the one that was enabled in the supervisor and subsequently triggered the invocation of the action function.
 
-    In the action function, you can trigger other events by calling the `handle_event` function.:
+    In the action function, you can trigger other events by calling the `trigger_event` function.:
 
     ```python
-    handle_event(Events['other_event_name'])
+    trigger_event(Events['other_event_name'])
     ```
 
 2. Then, set the action function to the event handler:
@@ -25,7 +25,7 @@ The file `main.py` is the entry point of the generated code and the only file yo
 3. Finally, when an event is received, run the event handler:
 
     ```python
-    handle_event(Events['event_name'])
+    trigger_event(Events['event_name'])
     ```
 
     If the event is enabled in all supervisors, the action function will be called.

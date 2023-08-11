@@ -1,6 +1,6 @@
 from events import Events
 from Event import Event
-from handle_event import handle_event
+from event_handler import trigger_event
 from time import sleep
 # install getkey with: pip install getkey
 from getkey import getkey
@@ -10,10 +10,10 @@ from getkey import getkey
 #     handle_event(Events['desliga'])
 
 def liga_action(event: Event):
-    print('Ligando...')
+    print('\n\nLigando...\n')
 
 def desliga_action(event: Event):
-    print('Desligando...')
+    print('\n\nDesligando...\n\n')
 
 # set default action for example
 # Events['btn'].set_action(btn_action)
@@ -27,6 +27,6 @@ if __name__ == '__main__':
         # read one char from stdin
         key = getkey()
         if key == 'b':
-            handle_event(Events['btn'])
+            trigger_event(Events['btn'])
         if key == 'q':
             break

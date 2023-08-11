@@ -1,4 +1,4 @@
-from Supervisor import Events, Event, handle_event
+from Supervisor import Events, Event, trigger_event
 
 def default_action(event: Event):
     """
@@ -11,4 +11,4 @@ def default_action(event: Event):
 
 if __name__ == '__main__':
     # handle events for teste
-%$%{handle_event}
+%$%{trigger_event}
