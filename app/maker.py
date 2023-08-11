@@ -144,8 +144,10 @@ def convert_supervisor(input_file, output_dir):
     for event in event_list:
         event['Name'] = event['Name'].replace('.', '_')
         events += f"    '{event['Name']}': Event(EventKind.{event['Kind']}, {i}, '{event['Name']}'),\n"
-        set_action += f"Events['{event['Name']}'].set_action(default_action)\n"
-        trigger_event += f"    trigger_event(Events['{event['Name']}'])\n"
+        if event['Kind'] == 'CONTROLLABLE':
+            set_action += f"Events['{event['Name']}'].set_action(default_action)\n"
+        if event['Kind'] == 'UNCONTROLLABLE':
+            trigger_event += f"    trigger_event(Events['{event['Name']}'])\n"
         i = i + 1
 
     fill_template(f"{base_dir}/template/Supervisor/events-template.py",
