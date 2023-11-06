@@ -31,11 +31,11 @@ class CustomTemplate(Template):
 	delimiter = '%$%'
 
 def fill_template(template, dest, template_dict):
-    # verify if scrtip is being executed on windows and convert paths to windows format
+    # verify if script is being executed on Windows and convert paths to Windows format
     if os.name == 'nt':
         template = template.replace('/', '\\')
         dest = dest.replace('/', '\\')
-    
+
     # make the names of the files
     with open(template, 'r') as f:
         src = CustomTemplate(f.read())
@@ -45,11 +45,11 @@ def fill_template(template, dest, template_dict):
     arquivo.write(result)
     arquivo.close()
 
-
 base_dir = os.path.dirname(os.path.realpath(__file__))
 
 
 def convert_supervisor(input_file, output_dir):
+    
     if input_file==None or not os.path.exists(input_file):
         print(f"File {input_file} not found")
         # raise exception

@@ -42,10 +42,10 @@ The file `main.py` is the entry point of the generated code and the only file yo
     ```
     Note that the action function receives an event as its parameter, which is an object belonging to the Event class. This particular event is the one that was enabled in the supervisor and subsequently triggered the invocation of the action function.
 
-    In the action function, you can trigger other events by calling the `handle_event` function.:
+    In the action function, you can trigger other events by calling the `trigger_event` function.:
 
     ```python
-    handle_event(Events['other_event_name'])
+    trigger_event(Events['other_event_name'])
     ```
 
 2. Then, set the action function to the event handler:
@@ -57,21 +57,11 @@ The file `main.py` is the entry point of the generated code and the only file yo
 3. Finally, when an event is received, run the event handler:
 
     ```python
-    handle_event(Events['event_name'])
+    trigger_event(Events['event_name'])
     ```
 
     If the event is enabled in all supervisors, the action function will be called.
 
 
 # cite this work
-If you use this software, please cite this work:
-```bibtex
-@software{Possato_DESPythonMaker_2023,
-author = {Possato, Tiago and Valentini, João Henrique and Lapa, Hudson},
-license = {GPL-3.0+},
-month = {3},
-title = {{DESPythonMaker}},
-url = {https://github.com/tiagopossato/des_python_maker},
-year = {2023}
-}
-```
+If you use this software, please cite this work. View citation in "Cite this repository"

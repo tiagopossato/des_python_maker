@@ -16,7 +16,7 @@ def handle_event(event: Event):
     """    
     if not isinstance(event, Event):
         raise TypeError("event must be instance of Event")
-    # print(f"\n-----------------------------------------\nRunning event: {event.get_name()}")
+    #print(f"\n-----------------------------------------\nRunning event: {event.get_name()}")
     with lock:
         # print(f"Event: {event.get_name()}")
         execution_list = []
@@ -58,4 +58,4 @@ def trigger_event(event: Event):
         # print(f"Automatic running event: {event.get_name()}")
         if trigger_event(event):
             break
-
+    return True

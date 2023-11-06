@@ -4,4 +4,4 @@ from .logger import log_error, log_state
 from .supervisors import %$%{supervisor_list}
 supervisors_list = [%$%{supervisor_list}]
 # import trigger_event after supervisor_list for avoid circular import
-from .handle_event import trigger_event
+from .event_handler import trigger_event

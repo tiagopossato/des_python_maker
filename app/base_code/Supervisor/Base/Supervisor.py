@@ -43,7 +43,7 @@ class Supervisor:
         # print(f"Event: {evt}")
         if evt not in self.__alphabet:
             #print(f"Event {evt.get_name()} in supervisor {self.__name} is not defined.")
-            return False
+            return True
         last_state = self.__current_state
         for transition in self.__current_state.get_transitions():
             if transition.get_event() == evt:
