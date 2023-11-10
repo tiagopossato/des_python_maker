@@ -95,6 +95,13 @@ def convert_supervisor(input_file, output_dir):
     simple_component_supervisor = simple_component_supervisor + simple_component_plant
 
     supervisors = []
+    # create supervisor list for use in trigger_event
+    supervisor_list = ""
+
+    distinguishers = []
+    # create supervisor list for use in trigger_event
+    distinguisher_list = ""
+    
     for supervisor in simple_component_supervisor:
         sup = {}
         sup['name'] = supervisor.get('Name')
@@ -126,6 +133,11 @@ def convert_supervisor(input_file, output_dir):
         sup['transition_list'] = transition_list
         sup['event_list'] = local_event_list
         supervisors.append(sup)
+
+        if supervisor.get('Kind') == 'SUPERVISOR':
+            supervisor_list += f"{sup['name']},"
+        if supervisor.get('Kind') == 'PLANT':
+            distinguisher_list += f"{sup['name']},"
 
 
     # make file events_names.py
@@ -162,12 +174,9 @@ def convert_supervisor(input_file, output_dir):
     # create import list
     import_list = ""
 
-    # create supervisor list for use in trigger_event
-    supervisor_list = ""
-
     for sup in supervisors:
         import_list += f"from .{sup['name']} import {sup['name']}\n"
-        supervisor_list += f"{sup['name']},"
+        # supervisor_list += f"{sup['name']},"
         # Create states
         # q0_state = State("q0", True)
         states = ""
@@ -214,9 +223,12 @@ def convert_supervisor(input_file, output_dir):
 
     # remove last comma
     supervisor_list = supervisor_list[:-1]
+    distinguisher_list = distinguisher_list[:-1]
+    
     fill_template(f"{base_dir}/template/Supervisor/__init__-template.py",
                     f"{output_dir}/Supervisor/__init__.py", 
-                    {'supervisor_list': supervisor_list})
+                    {'supervisor_list': supervisor_list,
+                     'distinguisher_list': distinguisher_list})
 
 
     # print("Lista de eventos:")
