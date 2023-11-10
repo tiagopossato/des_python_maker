@@ -1,7 +1,7 @@
 """
 Arquivo principal do programa, responsável por ler o arquivo xml e gerar os arquivos python
 Procura pelas tags SimpleComponent, com o atributo Kind="SUPERVISOR"
-Já para os distuinguidores, procura pelas tags SimpleComponent, com o atributo Kind="PLANT" e Name="GD*"
+Já para os distuinguidores, procura pelas tags SimpleComponent, com o atributo Kind="PLANT" e Name="H*"
 Cada supervisor ou distuinguidor é um arquivo python separado, com o nome do supervisor ou distuinguidor
 """
 try:
@@ -89,9 +89,9 @@ def convert_supervisor(input_file, output_dir):
     # get all supervisors
     simple_component_supervisor = bs_data.find_all('SimpleComponent', {'Kind':'SUPERVISOR'})
 
-    # get all simple components with kind Plant wich starts with 'GD'
+    # get all simple components with kind Plant wich starts with 'H'
     simple_component_plant = bs_data.find_all('SimpleComponent', {'Kind':'PLANT'})
-    simple_component_plant = [x for x in simple_component_plant if x.get('Name').startswith('GD')]
+    simple_component_plant = [x for x in simple_component_plant if x.get('Name').startswith('H')]
     simple_component_supervisor = simple_component_supervisor + simple_component_plant
 
     supervisors = []
